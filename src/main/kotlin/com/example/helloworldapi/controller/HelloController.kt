@@ -19,12 +19,8 @@ class HelloController {
         @RequestParam(value = "name", required = false, defaultValue = "world") name: String
     ): String = "Hello, $name"
 
-
     @GetMapping("/json")
     fun helloJson(
         @RequestParam(value = "name", required = false, defaultValue = "world") name: String
     ): HelloName = HelloName("Hello, $name")
-
-    @GetMapping("/error")
-    fun error(): Error = throw RuntimeException("sorry my bad :(")
 }
