@@ -2,23 +2,25 @@ package com.example.helloworldapi.controller
 
 import com.example.helloworldapi.entity.HelloName
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping(
+    path = ["/hello"],
+)
 class HelloController {
-    @GetMapping("/helloworld")
+    @GetMapping
     fun hello(): String = "Hello! World!"
 
-    @GetMapping("/helloname")
+    @GetMapping("/name")
     fun helloName(
         @RequestParam(value = "name", required = false, defaultValue = "world") name: String
     ): String = "Hello, $name"
 
-
-    @GetMapping("/hellojson")
+    @GetMapping("/json")
     fun helloJson(
         @RequestParam(value = "name", required = false, defaultValue = "world") name: String
     ): HelloName = HelloName("Hello, $name")
-
 }
