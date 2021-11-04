@@ -16,7 +16,7 @@ class ErrorHandlerController {
 
     @ExceptionHandler(Exception::class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleException(e: Exception): ErrorResponse = ErrorResponse(e.toString())
+    fun handleException(e: Exception): ErrorResponse = ErrorResponse("something wrong :(")
 
     @ExceptionHandler(ConstraintViolationException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
